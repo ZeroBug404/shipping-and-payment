@@ -1,17 +1,21 @@
 import React from "react";
+import {
+  useSignInWithFacebook,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import { FcGoogle } from "react-icons/fc";
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
+import auth from "../../firebase.init";
 
 const ShipInfoFrom = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
   const handleGoogleSignIn = () => {
     signInWithGoogle();
-}
+  };
   const handleGoogleSignUp = () => {
     signInWithGoogle();
-}
+  };
+
 
   return (
     <div className="mt-10">
@@ -22,11 +26,14 @@ const ShipInfoFrom = () => {
         "
         >
           LOG IN WITH
-          <FcGoogle size={25} className="ml-3"/>
+          <FcGoogle size={25} className="ml-3" />
         </button>
-        <button onClick={handleGoogleSignUp} class="btn btn-outline btn-accent w-48 rounded-full">
+        <button
+          onClick={handleGoogleSignUp}
+          class="btn btn-outline btn-accent w-48 rounded-full"
+        >
           SIGN UP WITH
-          <FcGoogle size={25} className="ml-3"/>
+          <FcGoogle size={25} className="ml-3" />
         </button>
       </div>
 
